@@ -6,6 +6,7 @@ Install custom tools under $HOME/Tools
 
 ### General
 * tmux
+* tpm
 * oh-my-zsh
 * powerlevel10k
 * forgit
