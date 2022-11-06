@@ -2,7 +2,14 @@
 set background=dark 
 set noshowmode
 set number
-vnoremap <C-C> :w !xsel -i -b<CR><CR>
+
+let ostype=system('uname -s')
+if ostype =~ "Linux"
+    vnoremap <C-c> :w !xsel -i -b<CR><CR>
+elseif ostype =~ "Darwin"
+    vnoremap <C-c> :w !pbcopy<CR><CR>
+endif
+
 filetype plugin indent on
 syntax enable
 set encoding=utf-8

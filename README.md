@@ -2,15 +2,26 @@
 My dotfiles repository. Run `install.sh` to setup the environment.
 
 ## Tools
-Install these under $HOME/Tools
+Install custom tools under $HOME/Tools
 
+### General
 * tmux
 * oh-my-zsh
 * powerlevel10k
 * forgit
 * fzf
 * ripgrep
+* fd
 * lsd
 * bat
+* zsh-syntax-highlighting
+
+#### Extras
 * kubectx
-* aws-cli
+* awscli
+
+### macOS
+* pbcopy
+
+### Linux
+* xsel

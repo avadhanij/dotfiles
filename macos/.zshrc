@@ -19,7 +19,6 @@ SAVEHIST=50000
 HISTFILE=~/.zsh_history
 
 plugins=(
-    bazel
     git
     zsh-syntax-highlighting
     z
@@ -30,12 +29,13 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 export LANG=en_US.UTF-8
 export TERM=xterm-256color
-export PATH="/opt/maven/bin:$HOME/bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 export LESS="-F -X $LESS"
 export EDITOR='vim'
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
+export LIBRARY_PATH=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+export JDK_HOME_11=/Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home
 export WORKON_HOME=~/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -44,22 +44,19 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 alias zshconfig="vim ~/.zshrc"
 alias vimconfig="vim ~/.vimrc"
 alias lh="ls -ltrh"
-alias pbcopy='xsel --clipboard --input'
-alias pbpaste='xsel --clipboard --output'
 alias ls='lsd'
 alias cat='bat -p'
 
 # FZF options
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
-export FZF_DEFAULT_COMMAND='fdfind --type f -i --hidden --follow --exclude .git'
+export FZF_DEFAULT_COMMAND='fd --type f -i --hidden --follow --exclude .git'
 export FZF_COMPLETION_OPTS='--border --info=inline'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Auto-completion
-[[ $- == *i* ]] && source "$HOME/Tools/fzf/shell/completion.zsh" 2> /dev/null
+[[ $- == *i* ]] && source "/opt/homebrew/opt/fzf/shell/completion.zsh" 2> /dev/null
 # Key bindings
-source "$HOME/Tools/fzf/shell/key-bindings.zsh"
+source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
 
 # Options to fzf command
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
@@ -71,16 +68,46 @@ fzf-down() {
 }
 
 _fzf_compgen_path() {
-  fdfind --hidden --follow --exclude ".git" . "$1"
+  fd --hidden --follow --exclude ".git" . "$1"
 }
 
 # Use fd to generate the list for directory completion
 _fzf_compgen_dir() {
-  fdfind --type d --hidden --follow --exclude ".git" . "$1"
+  fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
+# M1 enchancements
+alias mzsh="arch -arm64 zsh"
+alias izsh="arch -x86_64 zsh"
+
+if [ "$(uname -p)" = "i386" ]; then
+  echo "Running in i386 mode (Rosetta)"
+  eval "$(/usr/local/Homebrew/bin/brew shellenv)"
+  alias brew='/usr/local/Homebrew/bin/brew'
+  export CPPFLAGS="-I/usr/local/Homebrew/opt/openssl@1.1/include"
+  export LDFLAGS="-L/usr/local/Homebrew/opt/openssl@1.1/lib"
+  export PKG_CONFIG_PATH="-L/usr/local/Homebrew/opt/openssl@1.1/lib/pkgconfig -L/usr/local/Homebrew/opt/mysql-client@5.7/lib/pkgconfig"
+  export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/Homebrew/opt/openssl@1.1/lib"
+  export MYSQLCLIENT_CFLAGS="-I/usr/local/Homebrew/opt/mysql-client@5.7/include/mysql/" 
+  export MYSQLCLIENT_LDFLAGS="-L/usr/local/Homebrew/opt/mysql-client@5.7/lib"
+  export PATH="/usr/local/Homebrew/bin:/usr/local/Homebrew/sbin:$PATH:/opt/homebrew/bin:/opt/homebrew/sbin"
+  export PATH="/usr/local/Homebrew/opt/mysql@5.7/bin:/usr/local/Homebrew/opt/mysql-client@5.7/bin:$PATH"
+  export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+else
+  echo "Running in ARM mode (M1)"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+  alias brew='/opt/homebrew/bin/brew'
+  export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
+  export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib"
+  export PKG_CONFIG_PATH="-L/opt/homebrew/opt/openssl@1.1/lib/pkgconfig"
+  export LIBRARY_PATH="$LIBRARY_PATH:/opt/homebrew/opt/openssl@1.1/lib"
+fi
+
 # Kubectl enhancements
-source "$HOME/.kubectl_completions.zsh"
+source $HOME/.kubectl_completions.zsh
+
+# Homebrew
+export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 
 # Forgit
 source $HOME/Tools/forgit/forgit.plugin.zsh
@@ -94,5 +121,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Enable virtualenvwrapper
-source "$HOME/.local/bin/virtualenvwrapper.sh"
-
+source /usr/local/Homebrew/bin/virtualenvwrapper.sh
