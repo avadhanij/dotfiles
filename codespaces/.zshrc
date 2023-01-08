@@ -23,12 +23,12 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 export LANG=en_US.UTF-8
 export TERM=xterm-256color
-export PATH="/opt/maven/bin:$HOME/bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 export LESS="-F -X $LESS"
 export EDITOR='vim'
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 export WORKON_HOME=~/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -50,9 +50,9 @@ export FZF_COMPLETION_OPTS='--border --info=inline'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Auto-completion
-[[ $- == *i* ]] && source "$HOME/Tools/fzf/shell/completion.zsh" 2> /dev/null
+[[ $- == *i* ]] && source "/usr/share/doc/fzf/examples/completion.zsh" 2> /dev/null
 # Key bindings
-source "$HOME/Tools/fzf/shell/key-bindings.zsh"
+source "/usr/share/doc/fzf/examples/key-bindings.zsh"
 
 # Options to fzf command
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
@@ -73,15 +73,14 @@ _fzf_compgen_dir() {
 }
 
 # Kubectl enhancements
-source "$HOME/.kubectl_completions.zsh"
+# source "$HOME/.kubectl_completions.zsh"
 
 # Forgit
 source $HOME/Tools/forgit/forgit.plugin.zsh
 
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# NVS
+export NVS_HOME="$HOME/.nvs"
+[ -s "$NVS_HOME/nvs.sh" ] && . "$NVS_HOME/nvs.sh"
 
 # Enable virtualenvwrapper
 source "$HOME/.local/bin/virtualenvwrapper.sh"
