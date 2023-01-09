@@ -1,6 +1,6 @@
 # OMZ configuration
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="eastwood"
+ZSH_THEME="kolo"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"

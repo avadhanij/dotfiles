@@ -15,6 +15,8 @@ rm -f ripgrep_13.0.0_amd64.deb
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+# Disable git dirty tracking
+git config --add oh-my-zsh.hide-dirty 1
 
 # Install TPM
 mkdir -p ~/.tmux/plugins
@@ -48,3 +50,4 @@ cp vim/.vimrc ~/.vimrc
 
 # Apt cleanup
 sudo apt -y autoremove
+
