@@ -42,6 +42,7 @@ sudo cp -r fonts/* /usr/share/fonts/opentype/
 # Install vimplug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+mkdir -p $HOME/.vim/colors
 cp vim/gruvbox.vim $HOME/.vim/colors/
 cp vim/.vimrc ~/.vimrc
 
