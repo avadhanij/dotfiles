@@ -47,7 +47,7 @@ alias lh="ls -ltrh"
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias ls='lsd'
-alias cat='bat -p'
+alias cat='batcat -p'
 
 # FZF options
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

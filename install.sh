@@ -23,18 +23,27 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # Copy ZSH config
 cp codespaces/.zshrc $HOME/.zshrc
 
-# Copy vimrc
-cp .vimrc ~/.vimrc
-
 # Copy tmux config
 cp .tmux.conf $HOME/.tmux.conf
 
 # Install forgit
 git clone --depth=1 https://github.com/wfxr/forgit.git $HOME/Tools/forgit
 
+# Install LSD
+wget https://github.com/Peltoche/lsd/releases/download/0.23.1/lsd_0.23.1_amd64.deb
+sudo dpkg -i lsd_0.23.1_amd64.deb
+rm -f lsd_0.23.1_amd64.deb
+
 # Copy fonts
-mkdir -p /usr/share/fonts/opentype
-cp -r fonts/* /usr/share/fonts/opentype/
+sudo mkdir -p /usr/share/fonts/opentype
+sudo cp -r fonts/* /usr/share/fonts/opentype/
+
+# Vim Setup
+# Install vimplug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+cp vim/gruvbox.vim $HOME/.vim/colors/
+cp vim/.vimrc ~/.vimrc
 
 # Apt cleanup
 sudo apt -y autoremove
