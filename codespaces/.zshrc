@@ -35,6 +35,7 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 
 # Custom aliases
 alias zshconfig="vim ~/.zshrc"
+alias zshreload="source ~/.zshrc"
 alias vimconfig="vim ~/.vimrc"
 alias lh="ls -ltrh"
 alias pbcopy='xsel --clipboard --input'

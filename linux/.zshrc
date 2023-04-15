@@ -42,12 +42,13 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 
 # Custom aliases
 alias zshconfig="vim ~/.zshrc"
+alias zshreload="source ~/.zshrc"
 alias vimconfig="vim ~/.vimrc"
 alias lh="ls -ltrh"
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias ls='lsd'
-alias cat='batcat -p'
+alias cat='bat -p'
 
 # FZF options
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -80,7 +81,7 @@ _fzf_compgen_dir() {
 }
 
 # Kubectl enhancements
-source "$HOME/.kubectl_completions.zsh"
+source $HOME/.kubectl_completions.zsh
 
 # Forgit
 source $HOME/Tools/forgit/forgit.plugin.zsh
@@ -94,5 +95,13 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Enable virtualenvwrapper
-source "$HOME/.local/bin/virtualenvwrapper.sh"
+source $HOME/.local/bin/virtualenvwrapper.sh
 
+skip_global_compinit=1
+. "$HOME/.cargo/env"
+
+alias assume="source assume"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

@@ -2,6 +2,10 @@
 
 # This script is specifically for Codespaces
 
+# Setup time
+sudo ln -fs /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
+sudo dpkg-reconfigure --frontend noninteractive tzdata
+
 # Install tools
 sudo apt update
 sudo apt install -y bat fd-find fzf tmux

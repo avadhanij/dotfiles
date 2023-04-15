@@ -19,6 +19,7 @@ SAVEHIST=50000
 HISTFILE=~/.zsh_history
 
 plugins=(
+    bazel
     git
     zsh-syntax-highlighting
     z
@@ -42,6 +43,7 @@ export WORKON_HOME=~/.virtualenvs
 
 # Custom aliases
 alias zshconfig="vim ~/.zshrc"
+alias zshreload="source ~/.zshrc"
 alias vimconfig="vim ~/.vimrc"
 alias lh="ls -ltrh"
 alias ls='lsd'
