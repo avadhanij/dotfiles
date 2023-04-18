@@ -53,7 +53,7 @@ alias cat='bat -p'
 # FZF options
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
-export FZF_DEFAULT_COMMAND='fdfind --type f -i --hidden --follow --exclude .git'
+export FZF_DEFAULT_COMMAND='fd --type f -i --hidden --follow --exclude .git'
 export FZF_COMPLETION_OPTS='--border --info=inline'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
@@ -72,12 +72,12 @@ fzf-down() {
 }
 
 _fzf_compgen_path() {
-  fdfind --hidden --follow --exclude ".git" . "$1"
+  fd --hidden --follow --exclude ".git" . "$1"
 }
 
 # Use fd to generate the list for directory completion
 _fzf_compgen_dir() {
-  fdfind --type d --hidden --follow --exclude ".git" . "$1"
+  fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
 # Kubectl enhancements

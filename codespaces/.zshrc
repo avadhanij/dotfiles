@@ -28,7 +28,7 @@ export LESS="-F -X $LESS"
 export EDITOR='vim'
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 export WORKON_HOME=~/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -41,12 +41,12 @@ alias lh="ls -ltrh"
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias ls='lsd'
-alias cat='batcat -p'
+alias cat='bat -p'
 
 # FZF options
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
-export FZF_DEFAULT_COMMAND='fdfind --type f -i --hidden --follow --exclude .git'
+export FZF_DEFAULT_COMMAND='fd --type f -i --hidden --follow --exclude .git'
 export FZF_COMPLETION_OPTS='--border --info=inline'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
@@ -65,12 +65,12 @@ fzf-down() {
 }
 
 _fzf_compgen_path() {
-  fdfind --hidden --follow --exclude ".git" . "$1"
+  fd --hidden --follow --exclude ".git" . "$1"
 }
 
 # Use fd to generate the list for directory completion
 _fzf_compgen_dir() {
-  fdfind --type d --hidden --follow --exclude ".git" . "$1"
+  fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
 # Kubectl enhancements
@@ -84,5 +84,13 @@ export NVS_HOME="$HOME/.nvs"
 [ -s "$NVS_HOME/nvs.sh" ] && . "$NVS_HOME/nvs.sh"
 
 # Enable virtualenvwrapper
-source "$HOME/.local/bin/virtualenvwrapper.sh"
+source $HOME/.local/bin/virtualenvwrapper.sh
 
+skip_global_compinit=1
+. "$HOME/.cargo/env"
+
+alias assume="source assume"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
