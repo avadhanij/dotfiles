@@ -49,6 +49,8 @@ alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias ls='lsd'
 alias cat='bat -p'
+alias assume="source assume"
+
 
 # FZF options
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -99,8 +101,6 @@ source $HOME/.local/bin/virtualenvwrapper.sh
 
 skip_global_compinit=1
 . "$HOME/.cargo/env"
-
-alias assume="source assume"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
