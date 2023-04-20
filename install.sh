@@ -54,6 +54,19 @@ cp codespaces/.zshrc $HOME/.zshrc
 # Copy tmux config
 cp .tmux.conf $HOME/.tmux.conf
 
+# Install kubectx
+git clone https://github.com/ahmetb/kubectx ~/Tools/kubectx --depth=1
+ln -s $HOME/Tools/kubectx/kubectx ~/.local/bin/kubectx
+ln -s $HOME/Tools/kubectx/kubens ~/.local/bin/kubens
+
+# Install K9s
+curl -LO https://github.com/derailed/k9s/releases/download/v0.27.3/k9s_Linux_amd64.tar.gz
+mkdir k9s
+tar -xf k9s_Linux_amd64.tar.gz -C ./k9s
+mv ./k9s/k9s ~/.local/bin/
+rm -rf k9s
+rm -f k9s_Linux_amd64.tar.gz
+
 # Copy fonts
 sudo mkdir -p /usr/share/fonts/opentype
 sudo cp -r fonts/* /usr/share/fonts/opentype/
