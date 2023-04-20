@@ -1,0 +1,11 @@
+pane	6sense	1	1	:*	1	avadhanij@avadhanij-ThinkPad-X1:/workspaces/ntropy	1	zsh	:
+pane	6sense	2	0	:-	1	avadhanij@avadhanij-ThinkPad-X1:~   :/home/codespace	1   zsh :
+pane	6sense	3	0	:	1	avadhanij@avadhanij-ThinkPad-X1:/workspaces/harness-config	1	zsh	:
+pane	6sense	4	0	:	1	avadhanij@avadhanij-ThinkPad-X1:~	:/home/codespace	1	zsh	:
+pane	6sense	5	0	:	1	avadhanij@avadhanij-ThinkPad-X1:~/Downloads	:/home/codespace/Downloads	1	zsh	:
+window	6sense	1	:ntropy	1	:*	ca63,232x57,0,0,6	off
+window	6sense	2	:ops	0	:-	ca5f,232x57,0,0,2	off
+window	6sense	3	:harness-config	0	:	ca60,232x57,0,0,3	off
+window	6sense	4	:k9s	0	:	ca61,232x57,0,0,4	off
+window	6sense	5	:zsh	0	:	ca62,232x57,0,0,5	:
+state	6sense	

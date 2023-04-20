@@ -42,28 +42,30 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git config --add oh-my-zsh.hide-dirty 1
 # Install p10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-cp .p10k.zsh ~/.p10k.zsh
+cp .p10k.zsh $HOME/.p10k.zsh
+
+# Copy tmux config
+cp tmux/.tmux.conf $HOME/.tmux.conf
 
 # Install TPM
-mkdir -p ~/.tmux/plugins
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+mkdir -p $HOME/.tmux/plugins
+git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+mkdir -p $HOME/.tmux/resurrect
+cp -r tmux/resurrect $HOME/.tmux/
 
 # Copy ZSH config
 cp codespaces/.zshrc $HOME/.zshrc
 
-# Copy tmux config
-cp .tmux.conf $HOME/.tmux.conf
-
 # Install kubectx
-git clone https://github.com/ahmetb/kubectx ~/Tools/kubectx --depth=1
-ln -s $HOME/Tools/kubectx/kubectx ~/.local/bin/kubectx
-ln -s $HOME/Tools/kubectx/kubens ~/.local/bin/kubens
+git clone https://github.com/ahmetb/kubectx $HOME/Tools/kubectx --depth=1
+ln -s $HOME/Tools/kubectx/kubectx $HOME/.local/bin/kubectx
+ln -s $HOME/Tools/kubectx/kubens $HOME/.local/bin/kubens
 
 # Install K9s
 curl -LO https://github.com/derailed/k9s/releases/download/v0.27.3/k9s_Linux_amd64.tar.gz
 mkdir k9s
 tar -xf k9s_Linux_amd64.tar.gz -C ./k9s
-mv ./k9s/k9s ~/.local/bin/
+mv ./k9s/k9s $HOME/.local/bin/
 rm -rf k9s
 rm -f k9s_Linux_amd64.tar.gz
 
@@ -77,7 +79,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 
 mkdir -p $HOME/.vim/colors
 cp vim/gruvbox.vim $HOME/.vim/colors/
-cp vim/.vimrc ~/.vimrc
+cp vim/.vimrc $HOME/.vimrc
 
 # Apt cleanup
 sudo apt -y autoremove
