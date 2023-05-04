@@ -48,6 +48,8 @@ alias vimconfig="vim ~/.vimrc"
 alias lh="ls -ltrh"
 alias ls='lsd'
 alias cat='bat -p'
+alias cls='printf "\033c"'
+alias assume="source assume"
 
 # FZF options
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
@@ -123,4 +125,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Enable virtualenvwrapper
-source /usr/local/Homebrew/bin/virtualenvwrapper.sh
+source $HOME/Library/Python/3.7/bin/virtualenvwrapper.sh

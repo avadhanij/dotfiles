@@ -60,6 +60,7 @@ cp codespaces/.zshrc $HOME/.zshrc
 git clone https://github.com/ahmetb/kubectx $HOME/Tools/kubectx --depth=1
 ln -s $HOME/Tools/kubectx/kubectx $HOME/.local/bin/kubectx
 ln -s $HOME/Tools/kubectx/kubens $HOME/.local/bin/kubens
+kubectl completion zsh > $HOME/.kubectl_completions.zsh
 
 # Install K9s
 curl -LO https://github.com/derailed/k9s/releases/download/v0.27.3/k9s_Linux_amd64.tar.gz

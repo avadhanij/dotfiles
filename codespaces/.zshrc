@@ -49,6 +49,7 @@ alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias ls='lsd'
 alias cat='bat -p'
+alias cls='printf "\033c"'
 alias assume="source assume"
 
 
