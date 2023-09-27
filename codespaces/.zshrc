@@ -35,7 +35,7 @@ export LESS="-F -X $LESS"
 export EDITOR='vim'
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 export WORKON_HOME=~/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=python3.7
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
