@@ -16,6 +16,7 @@ Install custom tools under $HOME/Tools
 * lsd
 * bat
 * zsh-syntax-highlighting
+* jq
 
 #### Extras
 * kubectx
