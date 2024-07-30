@@ -21,7 +21,6 @@ HISTFILE=~/.zsh_history
 plugins=(
     forgit
     git
-    zsh-syntax-highlighting
     z
 )
 
@@ -36,7 +35,6 @@ export EDITOR='vim'
 export LIBRARY_PATH=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 export JDK_HOME_11=/Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home
-export WORKON_HOME=~/.virtualenvs
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -49,6 +47,13 @@ alias lh="ls -ltrh"
 alias ls='lsd'
 alias cat='bat -p'
 alias cls='printf "\033c"'
+alias docker='podman'
+
+# Custom functions
+activate()
+{
+    source .venv/bin/activate
+}
 
 # FZF options
 export FZF_DEFAULT_OPTS='--height 80% --layout=reverse --border'
@@ -89,5 +94,3 @@ export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Enable virtualenvwrapper
-# source $HOME/Library/Python/3.7/bin/virtualenvwrapper.sh
