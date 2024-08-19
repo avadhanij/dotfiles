@@ -1,0 +1,20 @@
+[font]
+size = 18.0
+
+[font.bold]
+style = "Bold"
+
+[font.bold_italic]
+style = "Bold Italic"
+
+[font.italic]
+style = "Italic"
+
+[font.normal]
+family = "Inconsolata Nerd Font Mono"
+
+[scrolling]
+history = 100000
+
+[window]
+option_as_alt = "Both"
