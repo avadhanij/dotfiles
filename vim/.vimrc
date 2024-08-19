@@ -105,6 +105,9 @@ Plug 'christoomey/vim-tmux-navigator'
 " Initialize plugin system
 call plug#end()
 
+" Disable quote concealing in JSON files
+let g:vim_json_conceal=0
+
 " Color scheme
 colorscheme gruvbox
 
