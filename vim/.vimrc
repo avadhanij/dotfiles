@@ -102,6 +102,9 @@ Plug 'jremmen/vim-ripgrep'
 " Vim tmux navigator
 Plug 'christoomey/vim-tmux-navigator'
 
+" Vim buffer tabs
+Plug 'ap/vim-buftabline'
+
 " Initialize plugin system
 call plug#end()
 
