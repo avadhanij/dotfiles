@@ -21,9 +21,6 @@ set sidescrolloff=5
 set display+=lastline
 
 " Indentation options
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
 set autoindent
 set cindent
 set expandtab
@@ -104,6 +101,9 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " Vim buffer tabs
 Plug 'ap/vim-buftabline'
+
+" Editorconfig 
+Plug 'editorconfig/editorconfig-vim'
 
 " Initialize plugin system
 call plug#end()
