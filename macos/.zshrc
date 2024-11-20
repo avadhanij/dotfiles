@@ -47,7 +47,6 @@ alias lh="ls -ltrh"
 alias ls='lsd'
 alias cat='bat -p'
 alias cls='printf "\033c"'
-alias docker='podman'
 
 # Custom functions
 activate()

@@ -24,9 +24,9 @@ indent_style = tab
 indent_size = 4
 
 # Indentation override for all JS files
-[*.js]
+[*.{js,ts}]
 indent_style = space
-indent_size = 2
+indent_size = 4
 
 # Matches all json, yml and yaml files
 [*.{json,yml,yaml}]
