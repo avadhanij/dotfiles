@@ -11,6 +11,7 @@ trim_trailing_whitespace = true
 
 [{*.go,Makefile,.gitmodules,go.mod,go.sum}]
 indent_style = tab
+indent_size = 4
 
 [*.py]
 indent_style = space
@@ -31,3 +32,11 @@ indent_size = 4
 [*.{json,yml,yaml}]
 indent_style = space
 indent_size = 2
+
+[*.md]
+indent_size = 4
+trim_trailing_whitespace = false
+eclint_indent_style = unset
+
+[Dockerfile]
+indent_size = 4
