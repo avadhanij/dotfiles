@@ -1,3 +1,5 @@
+########### Go ############
+
 [language-server.gopls]
 command = "gopls"
 config = { "gofumpt" = true, "local" = "goimports", "semanticTokens" = true, "staticcheck" = true, "verboseOutput" = true, "analyses" = { "fieldalignment" = true, "nilness" = true, unusedparams = true, unusedwrite = true, useany = true }, usePlaceholders = true, completeUnimported = true, hints = { "assignVariableType" = true, "compositeLiteralFields" = true, "compositeLiteralTypes" = true, "constantValues" = true, "functionTypeParameters" = true, "parameterNames" = true, "rangeVariableTypes" = true } }
@@ -9,6 +11,21 @@ auto-format = true
 comment-token = "//"
 language-servers = [ "gopls"]
 
+
+########### Python ############
+[language-server.ruff-lsp]
+command = "ruff-lsp"
+
+[language-server.ruff.config.settings]
+lineLength = 120
+
+[[language]]
+name = "python"
+language-servers = [ "ruff-lsp" ]
+formatter = { command = "ruff", args = ["format", "-"] }
+auto-format = true
+
+########### JSON ############
 [[language]]
 name = "json"
 formatter = { command = 'prettier', args = ["--parser", "json"] }
@@ -19,6 +36,7 @@ name = "jsonc"
 formatter = { command = 'prettier', args = ["--parser", "jsonc"] }
 auto-format = true
 
+########### YAML ############
 [[language]]
 name = "yaml"
 formatter = { command = "prettier", args = ["--parser", "yaml"] }
