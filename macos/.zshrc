@@ -5,48 +5,35 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# OMZ configuration
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
-
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 HIST_STAMPS="mm/dd/yyyy"
 HISTSIZE=50000
 SAVEHIST=50000
 HISTFILE=~/.zsh_history
 
-plugins=(
-    forgit
-    git
-    z
-)
-
-source $ZSH/oh-my-zsh.sh
+source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # User configuration
 export LANG=en_US.UTF-8
 export TERM=xterm-256color
-export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+export GOPATH="$HOME/go"
+export PATH="$HOME/bin:$HOME/.local/bin:$GOPATH/bin:$PATH"
 export LESS="-F -X $LESS"
 export EDITOR='vim'
 export LIBRARY_PATH=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-export JDK_HOME_11=/Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
 # Custom aliases
 alias zshconfig="vim ~/.zshrc"
 alias zshreload="source ~/.zshrc"
 alias vimconfig="vim ~/.vimrc"
-alias lh="ls -ltrh"
+alias ll="ls -ltrh"
 alias ls='lsd'
 alias cat='bat -p'
 alias cls='printf "\033c"'
+alias gst='git status'
+alias gau='git add -u'
+alias gc='git commit'
 
 # Custom functions
 activate()
