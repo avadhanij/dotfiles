@@ -12,7 +12,7 @@ HISTSIZE=50000
 SAVEHIST=50000
 HISTFILE=~/.zsh_history
 
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+source $HOME/Tools/powerlevel10k/powerlevel10k.zsh-theme
 
 # User configuration
 export LANG=en_US.UTF-8
@@ -36,7 +36,7 @@ alias gau='git add -u'
 alias gc='git commit'
 
 # Custom functions
-activate()
+function activate()
 {
     source .venv/bin/activate
 }
