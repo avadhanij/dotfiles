@@ -5,7 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 HIST_STAMPS="mm/dd/yyyy"
 HISTSIZE=50000
@@ -19,12 +19,12 @@ export LANG=en_US.UTF-8
 export TERM=xterm-256color
 export GOPATH="$HOME/go"
 export PATH="$HOME/bin:$HOME/.local/bin:$GOPATH/bin:$PATH"
-export LESS="-F -X $LESS"
-export EDITOR='vim'
+export LESS="-F -R -X $LESS"
+export EDITOR='hx'
 export LIBRARY_PATH=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/
 
 # Custom aliases
-alias zshconfig="vim ~/.zshrc"
+alias zshconfig="hx ~/.zshrc"
 alias zshreload="source ~/.zshrc"
 alias vimconfig="vim ~/.vimrc"
 alias ll="ls -ltrh"
@@ -80,3 +80,10 @@ export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# ZSH Syntax Highlighting
+source $HOME/Tools/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Forgit
+source $HOME/Tools/forgit/forgit.plugin.zsh
+
+eval "$(zoxide init zsh)"

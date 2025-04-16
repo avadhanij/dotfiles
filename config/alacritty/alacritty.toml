@@ -1,5 +1,10 @@
+[general]
+import = [
+  "~/.config/alacritty/themes/monokai_pro.toml"
+]
+
 [font]
-size = 18.0
+size = 20.0
 
 [font.bold]
 style = "Bold"
@@ -16,5 +21,11 @@ family = "Inconsolata Nerd Font Mono"
 [scrolling]
 history = 100000
 
+[selection]
+save_to_clipboard = true
+
 [window]
+padding = { x = 5, y = 5 }
+dynamic_padding = false
 option_as_alt = "Both"
+dynamic_title = true
