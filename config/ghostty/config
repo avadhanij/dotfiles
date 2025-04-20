@@ -1,4 +1,8 @@
-font-size = 18
-theme = Monokai Pro Machine
+font-size = 20
+font-family = Inconsolata Nerd Font Mono
+term = xterm-256color
+theme = Monokai Pro
 copy-on-select = clipboard
 quit-after-last-window-closed = true
+keybind = home=text:\x01
+keybind = end=text:\x05
