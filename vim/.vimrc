@@ -1,4 +1,5 @@
 " General options
+let mapleader = " "
 set background=dark 
 set noshowmode
 set number
@@ -32,7 +33,14 @@ set complete-=i
 " Buffer options
 nnoremap <silent> = :bn<cr>
 nnoremap <silent> - :bp<cr>
+nnoremap <leader>q :bd<cr>
 set hidden
+
+" Navigation options
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
 
 " Search options
 set incsearch
