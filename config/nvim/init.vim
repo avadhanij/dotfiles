@@ -63,7 +63,7 @@ require('config.lazy')
 require('config.lualine')
 
 -- Tab line
-require('config.tabline')
+require('config.bufferline')
 
 -- Telescope
 require('config.telescope')
@@ -79,6 +79,9 @@ require('config.lsp')
 
 -- Spectre
 require('config.spectre')
+
+-- Trouble
+require('config.trouble')
 
 EOF
 
