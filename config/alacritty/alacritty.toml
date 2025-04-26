@@ -30,10 +30,3 @@ dynamic_padding = false
 option_as_alt = "Both"
 dynamic_title = true
 
-[[keyboard.bindings]]
-chars = "\u0001"
-key = "Home"
-
-[[keyboard.bindings]]
-chars = "\u0005"
-key = "End"

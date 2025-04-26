@@ -16,24 +16,25 @@ source $HOME/Tools/powerlevel10k/powerlevel10k.zsh-theme
 
 # User configuration
 export LANG=en_US.UTF-8
-export TERM=xterm-256color
 export GOPATH="$HOME/go"
 export PATH="$HOME/bin:$HOME/.local/bin:$GOPATH/bin:$PATH"
 export LESS="-F -R -X $LESS"
-export EDITOR='hx'
+export EDITOR='nvim'
 export LIBRARY_PATH=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/
 
 # Custom aliases
 alias zshconfig="hx ~/.zshrc"
 alias zshreload="source ~/.zshrc"
 alias vimconfig="vim ~/.vimrc"
-alias ll="ls -ltrh"
 alias ls='lsd'
+alias ll="ls -ltrh"
+alias la="ls -la"
 alias cat='bat -p'
 alias cls='printf "\033c"'
 alias gst='git status'
 alias gau='git add -u'
 alias gc='git commit'
+alias k='kubectl'
 
 # Custom functions
 function activate()
