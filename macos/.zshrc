@@ -16,8 +16,7 @@ source $HOME/Tools/powerlevel10k/powerlevel10k.zsh-theme
 
 # User configuration
 export LANG=en_US.UTF-8
-export GOPATH="$HOME/go"
-export PATH="$HOME/bin:$HOME/.local/bin:$GOPATH/bin:$PATH"
+export PATH="$HOME/.local/bin:$GOPATH/bin:$PATH"
 export LESS="-F -R -X $LESS"
 export EDITOR='nvim'
 export LIBRARY_PATH=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/
@@ -35,10 +34,12 @@ alias gst='git status'
 alias gau='git add -u'
 alias gc='git commit'
 alias k='kubectl'
+alias wtl='git worktree list'
 
 # Custom functions
-function activate()
-{
+
+# Python venv helper
+function activate() {
     source .venv/bin/activate
 }
 
@@ -48,16 +49,6 @@ export FZF_DEFAULT_COMMAND='fd --type f -i --hidden --follow --exclude .git'
 export FZF_COMPLETION_OPTS='--border --info=inline'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-# Auto-completion
-[[ $- == *i* ]] && source "/opt/homebrew/opt/fzf/shell/completion.zsh" 2> /dev/null
-# Key bindings
-source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
-
-# Options to fzf command
-# Use fd (https://github.com/sharkdp/fd) instead of the default find
-# command for listing path candidates.
-# - The first argument to the function ($1) is the base path to start traversal
-# - See the source code (completion.{bash,zsh}) for the details.
 fzf-down() {
   fzf --height 100% --min-height 20 --border --bind ctrl-/:toggle-preview "$@"
 }
@@ -70,6 +61,15 @@ _fzf_compgen_path() {
 _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
 }
+
+source $HOME/Tools/fzf-git.sh/fzf-git.sh
+
+function wt() {
+	cd "$(_fzf_git_worktrees --no-multi)"
+}
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 
 # M1 enchancements
 alias mzsh="arch -arm64 zsh"
@@ -87,4 +87,5 @@ source $HOME/Tools/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Forgit
 source $HOME/Tools/forgit/forgit.plugin.zsh
 
+# Zoxide
 eval "$(zoxide init zsh)"

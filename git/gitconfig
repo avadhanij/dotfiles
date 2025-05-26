@@ -1,0 +1,24 @@
+[user]
+    name = Avadhani Jonnavithula
+    email =
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+[push]
+    autoSetupRemote = true
+[commit]
+    verbose = 1
+[alias]
+    cob = checkout -b
+    del = branch -D
+    br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+    undo = reset HEAD~1 --mixed
+    lg = !git log --pretty=format:\"%C(magenta)%h%Creset -%C(red)%d%Creset %s %C(dim green)(%cr) [%an]\" --abbrev-commit -30
+    clone-for-worktrees = "!sh $HOME/Tools/git-clone-bare-for-worktrees.sh"
+    wt = worktree
+    wtab = worktree add -b
+    wtl = worktree list
+    wtr = worktree remove
+

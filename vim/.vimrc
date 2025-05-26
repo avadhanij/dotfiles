@@ -82,9 +82,6 @@ Plug 'ConradIrwin/vim-bracketed-paste'
 " Takes care of showing indent lines
 Plug 'Yggdroot/indentLine'
 
-" Syntax checker
-Plug 'dense-analysis/ale'
-
 " File explorer
 Plug 'preservim/nerdtree'
 
@@ -94,9 +91,6 @@ Plug 'junegunn/fzf.vim'
 
 " Status bar
 Plug 'vim-airline/vim-airline'
-
-" Git plugin
-Plug 'tpope/vim-fugitive'
 
 " Buffer Explorer
 Plug 'jeetsukumaran/vim-buffergator'
@@ -138,14 +132,6 @@ noremap <leader>n :NERDTreeFind<CR>
 let NERDTreeIgnore=['\.pyc$', '__pycache__', '\.egg-info', '.code-workspace']
 autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
 let g:plug_window = 'noautocmd vertical topleft new'
-
-" ALE options
-let g:ale_linters = {
-\   'python': ['flake8'],
-\   'json': ['jsonlint'],
-\   'yaml': ['yamllint']
-\ }
-let g:ale_python_flake8_options="--ignore=W391,E501"
 
 " Buffergator options
 let g:buffergator_viewport_split_policy='B'

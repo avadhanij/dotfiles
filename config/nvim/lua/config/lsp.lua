@@ -1,4 +1,4 @@
-require'lspconfig'.lua_ls.setup{}
+require('lspconfig').lua_ls.setup({})
 
 vim.lsp.config['luals'] = {
   -- Command and arguments to start the server.
@@ -27,3 +27,5 @@ vim.lsp.config['luals'] = {
 
 vim.lsp.enable('luals')
 
+require("lspconfig").gopls.setup({})
+vim.lsp.enable('gopls')
