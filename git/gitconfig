@@ -21,4 +21,5 @@
     wtab = worktree add -b
     wtl = worktree list
     wtr = worktree remove
+	remotes = "remote -v"
 

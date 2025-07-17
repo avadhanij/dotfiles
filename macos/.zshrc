@@ -31,10 +31,16 @@ alias la="ls -la"
 alias cat='bat -p'
 alias cls='printf "\033c"'
 alias gst='git status'
+alias gaa='git add -A'
+alias gpb='git pull origin $(git branch --show-current)'
+alias gpa='git pull'
 alias gau='git add -u'
 alias gc='git commit'
 alias k='kubectl'
 alias wtl='git worktree list'
+
+# Options
+setopt share_history
 
 # Custom functions
 
@@ -68,6 +74,12 @@ function wt() {
 	cd "$(_fzf_git_worktrees --no-multi)"
 }
 
+function cdd() {
+  local dir
+  dir=$(fd -t d | fzf --prompt="Directory: " --height=50% --border)
+  [[ -n $dir ]] && cd "$dir"
+}
+
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
@@ -89,3 +101,35 @@ source $HOME/Tools/forgit/forgit.plugin.zsh
 
 # Zoxide
 eval "$(zoxide init zsh)"
+
+# Key Bindings
+# Make sure that the terminal is in application mode when zle is active, since
+# only then values from $terminfo are valid
+if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
+  function zle-line-init() {
+    echoti smkx
+  }
+  function zle-line-finish() {
+    echoti rmkx
+  }
+  zle -N zle-line-init
+  zle -N zle-line-finish
+fi
+
+# Use emacs key bindings
+bindkey -e
+
+# [Home] - Go to beginning of line
+if [[ -n "${terminfo[khome]}" ]]; then
+  bindkey -M emacs "${terminfo[khome]}" beginning-of-line
+  bindkey -M viins "${terminfo[khome]}" beginning-of-line
+  bindkey -M vicmd "${terminfo[khome]}" beginning-of-line
+fi
+# [End] - Go to end of line
+if [[ -n "${terminfo[kend]}" ]]; then
+  bindkey -M emacs "${terminfo[kend]}"  end-of-line
+  bindkey -M viins "${terminfo[kend]}"  end-of-line
+  bindkey -M vicmd "${terminfo[kend]}"  end-of-line
+fi
+
+
