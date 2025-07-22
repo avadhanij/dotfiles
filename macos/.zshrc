@@ -31,10 +31,10 @@ alias la="ls -la"
 alias cat='bat -p'
 alias cls='printf "\033c"'
 alias gst='git status'
+alias gau='git add -u'
 alias gaa='git add -A'
 alias gpb='git pull origin $(git branch --show-current)'
 alias gpa='git pull'
-alias gau='git add -u'
 alias gc='git commit'
 alias k='kubectl'
 alias wtl='git worktree list'
@@ -132,4 +132,12 @@ if [[ -n "${terminfo[kend]}" ]]; then
   bindkey -M vicmd "${terminfo[kend]}"  end-of-line
 fi
 
+# [Cmd + Left] - Go to beginning of line
+bindkey -M emacs "^[[1;9D" beginning-of-line
+bindkey -M viins "^[[1;9D" beginning-of-line
+bindkey -M vicmd "^[[1;9D" beginning-of-line
+# [Cmd + Right] - Go to end of line
+bindkey -M emacs "^[[1;9C"  end-of-line
+bindkey -M viins "^[[1;9C"  end-of-line
+bindkey -M vicmd "^[[1;9C"  end-of-line
 
